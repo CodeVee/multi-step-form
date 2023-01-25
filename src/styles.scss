@@ -2,3 +2,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/assets/fonts/ubuntu.eot'); /* IE9 Compat Modes */
+  src: url('/assets/fonts/ubuntu.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('/assets/fonts/ubuntu.woff') format('woff'), /* Modern Browsers */
+  url('/assets/fonts/ubuntu.ttf')  format('truetype'), /* Safari, Android, iOS */
+  url('/assets/fonts/ubuntu.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+h1 {
+  font-family: 'Ubuntu', sans-serif;
+}
