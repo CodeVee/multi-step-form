@@ -22,7 +22,11 @@ module.exports = {
         'light': '#d6d9e6'
       }
     },
-    extend: {},
+    extend: {
+      spacing: {
+        1.6: '1.6rem'
+      }
+    },
   },
   plugins: [],
 }
