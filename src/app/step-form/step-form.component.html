@@ -1,2 +1,6 @@
 <div class="h-full pt-16 pb-1.6">
+  <app-header *ngIf="currentTitle">
+    <span header>{{ currentTitle.header }}</span>
+    <span sub-header>{{ currentTitle.subHeader }}</span>
+  </app-header>
 </div>
