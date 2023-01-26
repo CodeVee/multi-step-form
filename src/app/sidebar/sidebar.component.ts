@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SidebarLinkComponent } from '../sidebar-link/sidebar-link.component';
 
@@ -11,7 +11,7 @@ import { SidebarLinkComponent } from '../sidebar-link/sidebar-link.component';
 })
 export class SidebarComponent {
   links = LINKS
-  activeStep = 1
+  @Input() activeStep: number | undefined
 }
 
 interface Link {
