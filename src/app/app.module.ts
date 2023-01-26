@@ -3,13 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { StepFormComponent } from './step-form/step-form.component';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule, SidebarComponent
+    BrowserModule, SidebarComponent, StepFormComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
