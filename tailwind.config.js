@@ -22,9 +22,14 @@ module.exports = {
         'light': '#d6d9e6'
       }
     },
+    backgroundImage: {
+      'sidebar-desktop': "url('assets/images/bg-sidebar-desktop.svg')",
+      'sidebar-mobile': "url('assets/images/bg-sidebar-mobile.svg')"
+    },
     extend: {
       spacing: {
-        1.6: '1.6rem'
+        '1.6': '1.6rem',
+        '3.2': '3.2rem'
       }
     },
   },
