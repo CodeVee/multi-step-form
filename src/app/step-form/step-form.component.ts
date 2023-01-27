@@ -1,19 +1,25 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
+import { ButtonComponent } from '../button.component';
 
 @Component({
   selector: 'app-step-form',
   standalone: true,
-  imports: [CommonModule, HeaderComponent],
+  imports: [CommonModule, HeaderComponent, ButtonComponent],
   templateUrl: './step-form.component.html',
   styles: []
 })
 export class StepFormComponent {
   @Input() activeStep: number | undefined
+  @Output() stepForwarded = new EventEmitter<void>()
 
   get currentTitle() {
     return TITLES.find(t => t.step === this.activeStep)
+  }
+
+  nextStep() {
+    this.stepForwarded.emit()
   }
 }
 

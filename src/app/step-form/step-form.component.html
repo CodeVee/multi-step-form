@@ -3,4 +3,7 @@
     <span header>{{ currentTitle.header }}</span>
     <span sub-header>{{ currentTitle.subHeader }}</span>
   </app-header>
+  <div class="flex justify-between">
+    <app-button (btnClicked)="nextStep()"></app-button>
+  </div>
 </div>
