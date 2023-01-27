@@ -29,12 +29,14 @@ module.exports = {
     extend: {
       spacing: {
         '1.6': '1.6rem',
-        '3.2': '3.2rem'
+        '3.2': '3.2rem',
+        '4.8': '4.8rem'
       },
       borderRadius: {
         'bs': '0.8rem'
       },
       fontSize: {
+        'sb': '1.4rem',
         'bs': '1.6rem'
       }
     },
