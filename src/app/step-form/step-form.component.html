@@ -6,7 +6,7 @@
   <div class="flex-1"></div>
   <div class="flex justify-between">
     <button (click)="previousStep()" [ngClass]="{'visible': beyondInfoStep, 'invisible': !beyondInfoStep}"
-    type="button" class="font-medium text-bs text-gray-cool">Go Back</button>
+    type="button" class="font-medium text-bs text-gray-cool hover:text-blue-marine">Go Back</button>
     <app-button *ngIf="summaryStep" [confirm]="true" (btnClicked)="confirm()"></app-button>
     <app-button *ngIf="!summaryStep" (btnClicked)="nextStep()"></app-button>
   </div>

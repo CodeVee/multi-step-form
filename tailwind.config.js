@@ -11,8 +11,10 @@ module.exports = {
       'blue': {
         'marine': '#02295a',
         'purplish': '#473dff',
+        'purplish-light': '#928cff',
         'pastel': '#adbeff',
-        'light': '#bfe2fd'
+        'light': '#bfe2fd',
+        'deep': '#164a8a'
       },
       'red': {
         'strawberry': '#ed3548'
