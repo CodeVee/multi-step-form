@@ -30,6 +30,9 @@ module.exports = {
       spacing: {
         '1.6': '1.6rem',
         '3.2': '3.2rem'
+      },
+      borderRadius: {
+        'bs': '0.8rem'
       }
     },
   },
