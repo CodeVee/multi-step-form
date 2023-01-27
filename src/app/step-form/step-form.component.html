@@ -1,8 +1,9 @@
-<div class="h-full pt-16 pb-1.6">
+<div class="h-full pt-16 pb-1.6 flex flex-col">
   <app-header *ngIf="currentTitle">
     <span header>{{ currentTitle.header }}</span>
     <span sub-header>{{ currentTitle.subHeader }}</span>
   </app-header>
+  <div class="flex-1"></div>
   <div class="flex justify-between">
     <button (click)="previousStep()" [ngClass]="{'visible': beyondInfoStep, 'invisible': !beyondInfoStep}"
     type="button" class="font-medium text-bs text-gray-cool">Go Back</button>
