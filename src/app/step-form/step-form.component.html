@@ -4,6 +4,8 @@
     <span sub-header>{{ currentTitle.subHeader }}</span>
   </app-header>
   <div class="flex justify-between">
+    <button (click)="previousStep()" [ngClass]="{'visible': beyondInfoStep, 'invisible': !beyondInfoStep}"
+    type="button" class="font-medium text-bs text-gray-cool">Go Back</button>
     <app-button *ngIf="summaryStep" [confirm]="true" (btnClicked)="confirm()"></app-button>
     <app-button *ngIf="!summaryStep" (btnClicked)="nextStep()"></app-button>
   </div>

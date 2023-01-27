@@ -13,6 +13,7 @@ import { ButtonComponent } from '../button.component';
 export class StepFormComponent {
   @Input() activeStep: number | undefined
   @Output() stepForwarded = new EventEmitter<void>()
+  @Output() stepReversed = new EventEmitter<void>()
 
   get currentTitle() {
     return TITLES.find(t => t.step === this.activeStep)
@@ -22,8 +23,15 @@ export class StepFormComponent {
     return this.activeStep === 4
   }
 
+  get beyondInfoStep() {
+    return this.activeStep && this.activeStep > 1
+  }
+
   nextStep() {
     this.stepForwarded.emit()
+  }
+  previousStep() {
+    this.stepReversed.emit()
   }
 
   confirm() {
