@@ -18,8 +18,16 @@ export class StepFormComponent {
     return TITLES.find(t => t.step === this.activeStep)
   }
 
+  get summaryStep() {
+    return this.activeStep === 4
+  }
+
   nextStep() {
     this.stepForwarded.emit()
+  }
+
+  confirm() {
+
   }
 }
 

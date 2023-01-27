@@ -4,6 +4,7 @@
     <span sub-header>{{ currentTitle.subHeader }}</span>
   </app-header>
   <div class="flex justify-between">
-    <app-button (btnClicked)="nextStep()"></app-button>
+    <app-button *ngIf="summaryStep" [confirm]="true" (btnClicked)="confirm()"></app-button>
+    <app-button *ngIf="!summaryStep" (btnClicked)="nextStep()"></app-button>
   </div>
 </div>
