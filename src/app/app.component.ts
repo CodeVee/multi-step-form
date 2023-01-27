@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   activeStep = 1
+
+  advanceStep() {
+    this.activeStep++
+  }
 }
