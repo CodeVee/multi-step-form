@@ -1,0 +1,10 @@
+<div class="grid grid-cols-3 gap-x-[1.8rem]">
+  <app-plan-radio
+    *ngFor="let plan of monthPlans"
+    [active]="plan.name === selectedPlan"
+    [planName]="plan.name"
+    [planImg]="plan.imgUrl"
+    [planAmount]="plan.amount"
+    (selected)="selectPlan($event)">
+  </app-plan-radio>
+</div>
