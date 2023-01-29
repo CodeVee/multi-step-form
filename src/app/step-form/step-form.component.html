@@ -3,7 +3,9 @@
     <span header>{{ currentTitle.header }}</span>
     <span sub-header>{{ currentTitle.subHeader }}</span>
   </app-header>
-  <div class="flex-1"></div>
+  <div class="flex-1">
+    <app-personal-step *ngIf="personalStep"></app-personal-step>
+  </div>
   <div class="flex justify-between">
     <button (click)="previousStep()" [ngClass]="{'visible': beyondInfoStep, 'invisible': !beyondInfoStep}"
     type="button" class="font-medium text-bs text-gray-cool hover:text-blue-marine">Go Back</button>

@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { ButtonComponent } from '../button.component';
 import { TextboxComponent } from '../textbox.component';
+import { PersonalStepComponent } from '../personal-step/personal-step.component';
 
 @Component({
   selector: 'app-step-form',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, ButtonComponent, TextboxComponent],
+  imports: [CommonModule, HeaderComponent, ButtonComponent, PersonalStepComponent],
   templateUrl: './step-form.component.html',
   styles: []
 })
@@ -20,6 +21,15 @@ export class StepFormComponent {
     return TITLES.find(t => t.step === this.activeStep)
   }
 
+  get personalStep() {
+    return this.activeStep === 1
+  }
+  get planStep() {
+    return this.activeStep === 2
+  }
+  get addonStep() {
+    return this.activeStep === 3
+  }
   get summaryStep() {
     return this.activeStep === 4
   }
