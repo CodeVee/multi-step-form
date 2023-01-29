@@ -41,7 +41,8 @@ module.exports = {
       },
       fontSize: {
         'sb': '1.4rem',
-        'bs': '1.6rem'
+        'bs': '1.6rem',
+        '2bs': '3.2rem'
       }
     },
   },

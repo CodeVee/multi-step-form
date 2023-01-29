@@ -1,9 +1,9 @@
 <div class="flex gap-1.6">
   <span [ngClass]="{'bg-blue-light text-blue-marine': active, 'border border-white bg-transparent text-white': !active}"
-    class="rounded-full h-[3.3rem] w-[3.3rem] flex justify-center items-center text-[1.4rem]
+    class="rounded-full h-[3.3rem] w-[3.3rem] flex justify-center items-center text-sb
     font-bold">{{ step }}</span>
   <div class="flex flex-col justify-between">
     <span class="font-normal text-[1.2rem] text-gray-light uppercase leading-6">step {{ step }}</span>
-    <small class="font-bold text-[1.4rem] text-white tracking-[1px] uppercase">{{ stage }}</small>
+    <small class="font-bold text-sb text-white tracking-[1px] uppercase">{{ stage }}</small>
   </div>
 </div>

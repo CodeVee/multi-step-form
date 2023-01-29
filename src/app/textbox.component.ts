@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="flex flex-col gap-[0.8rem]">
+    <div class="flex flex-col gap-0.8">
       <div class="flex justify-between">
         <label class="font-normal text-sb leading-6 text-blue-marine" [for]="label">{{ label }}</label>
         <span *ngIf="hasError" class="font-bold text-sb text-red-strawberry">This field is required</span>
