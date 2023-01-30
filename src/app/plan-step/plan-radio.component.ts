@@ -7,9 +7,12 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
     <button
-    (click)="selected.emit(planName)"
-    [ngClass]="{'border-blue-purplish bg-alabaster': active, 'border-gray-light hover:border-blue-purplish bg-white': !active}"
-    class="w-full border rounded-bs pl-1.6 pb-1.6 pt-8 flex flex-col gap-16">
+      (click)="selected.emit(planName)"
+      [ngClass]="{'border-blue-purplish bg-alabaster': active,
+        'border-gray-light hover:border-blue-purplish bg-white': !active,
+        'h-64': !annual, 'h-[18.3rem]': annual
+      }"
+      class="w-full border rounded-bs pl-1.6 pb-1.6 pt-8 flex flex-col justify-between">
       <img class="self-start" [src]="planImg" [alt]="planName">
       <div class="flex flex-col gap-0.8 text-left">
         <h4 class="capitalize font-medium text-bs leading-7 text-blue-marine">{{ planName }}</h4>
