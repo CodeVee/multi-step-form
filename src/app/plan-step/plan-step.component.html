@@ -1,4 +1,4 @@
-<div class="grid grid-cols-3 gap-x-[1.8rem]">
+<div class="grid grid-cols-3 gap-x-[1.8rem] mb-3.2">
   <app-plan-radio
     *ngFor="let plan of monthPlans"
     [active]="plan.name === selectedPlan"
@@ -7,4 +7,9 @@
     [planAmount]="plan.amount"
     (selected)="selectPlan($event)">
   </app-plan-radio>
+</div>
+<div class="bg-alabaster rounded-bs h-4.8 flex justify-center items-center gap-2.4">
+  <span [ngClass]="{'text-blue-marine': !annualPlan, 'text-gray-cool': annualPlan}" class="capitalize text-sb font-bold">monthly</span>
+  <app-plan-toggle [active]="annualPlan" (toggled)="changeBilling()"></app-plan-toggle>
+  <span [ngClass]="{'text-blue-marine': annualPlan, 'text-gray-cool': !annualPlan}" class="capitalize text-sb font-bold">yearly</span>
 </div>

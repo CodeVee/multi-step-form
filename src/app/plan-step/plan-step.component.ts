@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PlanRadioComponent } from './plan-radio.component';
+import { PlanToggleComponent } from './plan-toggle.component';
 
 @Component({
   selector: 'app-plan-step',
   standalone: true,
-  imports: [CommonModule, PlanRadioComponent],
+  imports: [CommonModule, PlanRadioComponent, PlanToggleComponent],
   templateUrl: './plan-step.component.html',
   styles: []
 })
@@ -18,9 +19,14 @@ export class PlanStepComponent {
   })
 
   selectedPlan = 'arcade'
+  annualPlan = false
 
   selectPlan(plan: string) {
     this.selectedPlan = plan
+  }
+
+  changeBilling() {
+    this.annualPlan = !this.annualPlan
   }
 }
 
