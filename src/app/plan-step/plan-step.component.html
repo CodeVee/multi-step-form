@@ -2,6 +2,7 @@
   <app-plan-radio
     *ngFor="let plan of plans |async"
     [active]="plan.name === selectedPlan"
+    [annual]="annualPlan"
     [planName]="plan.name"
     [planImg]="plan.imgUrl"
     [planAmount]="plan.amount"
