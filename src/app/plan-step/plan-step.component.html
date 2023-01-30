@@ -1,6 +1,6 @@
 <div class="grid grid-cols-3 gap-x-[1.8rem] mb-3.2">
   <app-plan-radio
-    *ngFor="let plan of monthPlans"
+    *ngFor="let plan of plans |async"
     [active]="plan.name === selectedPlan"
     [planName]="plan.name"
     [planImg]="plan.imgUrl"
