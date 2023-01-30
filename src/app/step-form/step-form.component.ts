@@ -2,13 +2,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { ButtonComponent } from '../button.component';
-import { TextboxComponent } from '../textbox.component';
 import { PersonalStepComponent } from '../personal-step/personal-step.component';
+import { PlanStepComponent } from '../plan-step/plan-step.component';
 
 @Component({
   selector: 'app-step-form',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, ButtonComponent, PersonalStepComponent],
+  imports: [CommonModule, HeaderComponent, ButtonComponent, PersonalStepComponent, PlanStepComponent],
   templateUrl: './step-form.component.html',
   styles: []
 })
