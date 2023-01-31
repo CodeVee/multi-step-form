@@ -6,6 +6,7 @@
   <div class="flex-1">
     <app-personal-step *ngIf="personalStep"></app-personal-step>
     <app-plan-step *ngIf="planStep"></app-plan-step>
+    <app-addon-step *ngIf="addonStep"></app-addon-step>
   </div>
   <div class="flex justify-between">
     <button (click)="previousStep()" [ngClass]="{'visible': beyondInfoStep, 'invisible': !beyondInfoStep}"
