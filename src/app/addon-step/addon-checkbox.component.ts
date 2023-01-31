@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
         <h4 class="capitalize font-medium text-bs leading-7 text-blue-marine">{{ header }}</h4>
         <h5 class="font-normal text-sb leading-6 text-gray-cool">{{ sub }}</h5>
       </div>
-      <h6 class="font-normal text-sb leading-6 text-blue-purplish">$ {{ amount }}/mo</h6>
+      <h6 class="font-normal text-sb leading-6 text-blue-purplish">+{{ '$' + amount }}/mo</h6>
     </button>
   `,
   styles: []

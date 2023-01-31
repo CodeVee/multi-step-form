@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
       <img class="self-start" [src]="planImg" [alt]="planName">
       <div class="flex flex-col gap-0.8 text-left">
         <h4 class="capitalize font-medium text-bs leading-7 text-blue-marine">{{ planName }}</h4>
-        <span class="font-normal text-sb leading-6 text-gray-cool">$ {{ planAmount }}/mo</span>
+        <span class="font-normal text-sb leading-6 text-gray-cool">{{ '$' + planAmount }}/mo</span>
         <span *ngIf="annual" class="text-blue-marine font-normal text-xl">2 months free</span>
       </div>
     </button>
