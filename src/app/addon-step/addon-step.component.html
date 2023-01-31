@@ -1,0 +1,9 @@
+<div class="flex flex-col gap-1.6">
+    <app-addon-checkbox
+      *ngFor="let addon of addons| async"
+      [amount]="addon.amount"
+      [header]="addon.header"
+      [sub]="addon.sub"
+      [checked]="addonSelected(addon.header)"
+      (selected)="updatedAddons(addon.header)"></app-addon-checkbox>
+</div>
