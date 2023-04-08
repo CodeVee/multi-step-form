@@ -5,11 +5,17 @@ import { ButtonComponent } from '../button.component';
 import { PersonalStepComponent } from '../personal-step/personal-step.component';
 import { PlanStepComponent } from '../plan-step/plan-step.component';
 import { AddonStepComponent } from '../addon-step/addon-step.component';
+import { SummaryStepComponent } from '../summary-step/summary-step.component';
 
 @Component({
   selector: 'app-step-form',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, ButtonComponent, PersonalStepComponent, PlanStepComponent, AddonStepComponent],
+  imports: [
+    CommonModule, HeaderComponent,
+    ButtonComponent, PersonalStepComponent,
+    PlanStepComponent, AddonStepComponent,
+    SummaryStepComponent
+  ],
   templateUrl: './step-form.component.html',
   styles: []
 })
