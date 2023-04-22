@@ -2,7 +2,8 @@
   <div class="w-[94rem] h-[60rem] bg-white rounded-3xl mx-auto self-center p-1.6 flex gap-40">
     <app-sidebar [activeStep]="activeStep"></app-sidebar>
     <main class="w-[45rem]">
-      <app-step-form [activeStep]="activeStep" (stepForwarded)="advanceStep()" (stepReversed)="reverseStep()"></app-step-form>
+      <app-step-form *ngIf="!formCompleted" [activeStep]="activeStep" (stepForwarded)="advanceStep()" (stepReversed)="reverseStep()"></app-step-form>
+      <app-subscription-confirmation *ngIf="formCompleted"></app-subscription-confirmation>
     </main>
   </div>
 </div>

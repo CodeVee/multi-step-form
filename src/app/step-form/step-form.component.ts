@@ -53,7 +53,7 @@ export class StepFormComponent {
   }
 
   confirm() {
-
+    this.stepForwarded.emit()
   }
 }
 

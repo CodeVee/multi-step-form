@@ -8,6 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   activeStep = 1
 
+  get formCompleted(): boolean {
+    return this.activeStep > 4
+  }
+
   advanceStep() {
     this.activeStep++
   }
