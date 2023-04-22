@@ -1,7 +1,7 @@
-<div class=" bg-mangolia h-[81rem] flex">
-  <div class="w-[94rem] h-[60rem] bg-white rounded-3xl mx-auto self-center p-1.6 flex gap-40">
+<div class=" bg-mangolia min-h-screen lg:h-[81rem] flex">
+  <div class="w-full lg:w-[94rem] lg:h-[60rem] lg:bg-white lg:rounded-3xl lg:mx-auto lg:self-center lg:p-1.6 flex flex-col lg:flex-row lg:gap-40">
     <app-sidebar [activeStep]="activeStep"></app-sidebar>
-    <main class="w-[45rem]">
+    <main class="lg:w-[45rem] flex-1 lg:flex-none -mt-[7.3rem] lg:mt-0">
       <app-step-form *ngIf="!formCompleted" [activeStep]="activeStep" (stepForwarded)="advanceStep()" (stepReversed)="reverseStep()"></app-step-form>
       <app-subscription-confirmation *ngIf="formCompleted"></app-subscription-confirmation>
     </main>

@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   template: `
     <button (click)="btnClicked.emit()"
     [ngClass]="{'bg-blue-purplish hover:bg-blue-purplish-light': confirm, 'bg-blue-marine hover:bg-blue-deep': !confirm}"
-    class="w-[12.3rem] h-4.8 text-white font-medium text-bs rounded-bs">
+    class="w-[9.7rem] lg:w-[12.3rem] h-16 lg:h-4.8 text-white font-medium text-sb lg:text-bs rounded-[.4rem] lg:rounded-bs">
       <span *ngIf="confirm; else nextText">Confirm</span>
       <ng-template #nextText>Next Step</ng-template>
     </button>

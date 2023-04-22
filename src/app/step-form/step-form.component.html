@@ -1,4 +1,4 @@
-<div class="h-full pt-16 pb-1.6 flex flex-col">
+<div class="h-full pt-16 pb-1.6 hidden lg:flex flex-col">
   <app-header *ngIf="currentTitle">
     <span header>{{ currentTitle.header }}</span>
     <span sub-header>{{ currentTitle.subHeader }}</span>
@@ -12,6 +12,26 @@
   <div class="flex justify-between">
     <button (click)="previousStep()" [ngClass]="{'visible': beyondInfoStep, 'invisible': !beyondInfoStep}"
     type="button" class="font-medium text-bs text-gray-cool hover:text-blue-marine">Go Back</button>
+    <app-button *ngIf="summaryStep" [confirm]="true" (btnClicked)="confirm()"></app-button>
+    <app-button *ngIf="!summaryStep" (btnClicked)="nextStep()"></app-button>
+  </div>
+</div>
+<div class="h-full flex flex-col lg:hidden justify-between gap-2.4">
+  <div class="fle bg-white w-[34.3rem] rounded-2xl px-2.4 py-3.2 self-center">
+    <app-header *ngIf="currentTitle">
+      <span header>{{ currentTitle.header }}</span>
+      <span sub-header>{{ currentTitle.subHeader }}</span>
+    </app-header>
+    <div class="fle">
+      <app-personal-step *ngIf="personalStep"></app-personal-step>
+      <app-plan-step *ngIf="planStep"></app-plan-step>
+      <app-addon-step *ngIf="addonStep"></app-addon-step>
+      <app-summary-step *ngIf="summaryStep"></app-summary-step>
+    </div>
+  </div>
+  <div class="flex justify-between items-center px-1.6 bg-white h-[7.2rem]">
+    <button (click)="previousStep()" [ngClass]="{'visible': beyondInfoStep, 'invisible': !beyondInfoStep}"
+    type="button" class="font-medium text-sb text-gray-cool hover:text-blue-marine">Go Back</button>
     <app-button *ngIf="summaryStep" [confirm]="true" (btnClicked)="confirm()"></app-button>
     <app-button *ngIf="!summaryStep" (btnClicked)="nextStep()"></app-button>
   </div>

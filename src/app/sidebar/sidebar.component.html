@@ -1,5 +1,5 @@
-<aside class="w-[27.4rem] h-full rounded-2xl pt-16 pl-3.2 bg-sidebar-desktop">
-  <div class="flex flex-col gap-3.2">
+<aside class="lg:w-[27.4rem] h-[17.2rem] lg:h-full lg:rounded-2xl pt-3.2 lg:pt-16 lg:pl-3.2 bg-sidebar-mobile lg:bg-sidebar-desktop">
+  <div class="flex lg:flex-col justify-center gap-1.6 lg:gap-3.2">
     <app-sidebar-link *ngFor="let link of links" [step]="link.step" [stage]="link.stage" [active]="link.step === activeStep"></app-sidebar-link>
   </div>
 </aside>

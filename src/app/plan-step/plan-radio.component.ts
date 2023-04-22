@@ -10,9 +10,10 @@ import { CommonModule } from '@angular/common';
       (click)="selected.emit(planName)"
       [ngClass]="{'border-blue-purplish bg-alabaster': active,
         'border-gray-light hover:border-blue-purplish bg-white': !active,
-        'h-64': !annual, 'h-[18.3rem]': annual
+        'lg:h-64': !annual, 'lg:h-[18.3rem]': annual
       }"
-      class="w-full border rounded-bs pl-1.6 pb-1.6 pt-8 flex flex-col justify-between">
+      class="w-full border rounded-bs pl-1.6 pt-[1.4rem] pb-[1.8rem] gap-[1.4rem] lg:gap-0
+      lg:pb-1.6 lg:pt-8 flex lg:flex-col lg:justify-between">
       <img class="self-start" [src]="planImg" [alt]="planName">
       <div class="flex flex-col gap-0.8 text-left">
         <h4 class="capitalize font-medium text-bs leading-7 text-blue-marine">{{ planName }}</h4>
