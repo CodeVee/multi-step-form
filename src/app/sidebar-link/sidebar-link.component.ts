@@ -5,8 +5,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-sidebar-link',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './sidebar-link.component.html',
-  styles: []
+  templateUrl: './sidebar-link.component.html'
 })
 export class SidebarLinkComponent {
   @Input() active: boolean | undefined

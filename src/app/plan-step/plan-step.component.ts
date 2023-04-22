@@ -1,49 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PlanRadioComponent } from './plan-radio.component';
 import { PlanToggleComponent } from './plan-toggle.component';
 import { BehaviorSubject } from 'rxjs';
+import { MonthPlans, YearPlans } from '../app.constant';
+import { FormControl } from '@angular/forms';
+import { Plan } from '../app.model';
 
 @Component({
   selector: 'app-plan-step',
   standalone: true,
   imports: [CommonModule, PlanRadioComponent, PlanToggleComponent],
-  templateUrl: './plan-step.component.html',
-  styles: []
+  templateUrl: './plan-step.component.html'
 })
-export class PlanStepComponent {
+export class PlanStepComponent implements OnInit {
 
-  plans = new BehaviorSubject(MonthPlans)
+  @Input() planIdCtrl!: FormControl<number>
+  @Input() annualCtrl!: FormControl<boolean>
+  plans!: BehaviorSubject<Plan[]>
 
-  selectedPlan = 'arcade'
-  annualPlan = false
+  ngOnInit(): void {
+    this.plans = new BehaviorSubject(this.annualCtrl.value ? YearPlans : MonthPlans)
+  }
 
-  selectPlan(plan: string) {
-    this.selectedPlan = plan
+  selectPlan(planId: number) {
+    this.planIdCtrl.setValue(planId)
   }
 
   changeBilling() {
-    this.annualPlan = !this.annualPlan
+    this.annualCtrl.setValue(!this.annualCtrl.value)
 
-    const displayPlans = this.annualPlan ? YearPlans : MonthPlans
+    const displayPlans = this.annualCtrl.value ? YearPlans : MonthPlans
     this.plans.next(displayPlans)
   }
 }
-
-interface Plan {
-  name: string
-  amount: number
-  imgUrl: string
-}
-
-const BASEPLANS: Plan[] = [
-  { name: 'arcade', amount: 9, imgUrl: 'assets/images/icon-arcade.svg' },
-  { name: 'advanced', amount: 12, imgUrl: 'assets/images/icon-advanced.svg' },
-  { name: 'pro', amount: 15, imgUrl: 'assets/images/icon-pro.svg' }
-]
-const MonthPlans = [...BASEPLANS]
-const YearPlans = BASEPLANS.map(plan => {
-    const yearPlan = { ...plan}
-    yearPlan.amount *= 10
-    return yearPlan
-  })

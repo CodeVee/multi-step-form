@@ -9,8 +9,7 @@ import { CommonModule } from '@angular/common';
     <button [ngClass]="{'justify-end': active}" (click)="toggled.emit()" class="flex bg-blue-marine h-8 w-16 px-[.4rem] rounded-2xl">
       <span class="w-[1.2rem] h-[1.2rem] rounded-full bg-white self-center"></span>
     </button>
-  `,
-  styles: []
+  `
 })
 export class PlanToggleComponent {
 

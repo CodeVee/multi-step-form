@@ -18,8 +18,7 @@ import { CommonModule } from '@angular/common';
       </div>
       <h6 class="font-normal text-[1.2rem] lg:text-sb leading-8 lg:leading-6 text-blue-purplish">+{{ '$' + amount }}/mo</h6>
     </button>
-  `,
-  styles: []
+  `
 })
 export class AddonCheckboxComponent {
 

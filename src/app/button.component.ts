@@ -12,8 +12,7 @@ import { CommonModule } from '@angular/common';
       <span *ngIf="confirm; else nextText">Confirm</span>
       <ng-template #nextText>Next Step</ng-template>
     </button>
-  `,
-  styles: []
+  `
 })
 export class ButtonComponent {
   @Input() confirm: boolean | undefined

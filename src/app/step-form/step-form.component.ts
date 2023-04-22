@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { ButtonComponent } from '../button.component';
@@ -6,6 +6,9 @@ import { PersonalStepComponent } from '../personal-step/personal-step.component'
 import { PlanStepComponent } from '../plan-step/plan-step.component';
 import { AddonStepComponent } from '../addon-step/addon-step.component';
 import { SummaryStepComponent } from '../summary-step/summary-step.component';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { StepForm } from '../app.model';
+import { TITLES } from '../app.constant';
 
 @Component({
   selector: 'app-step-form',
@@ -16,13 +19,21 @@ import { SummaryStepComponent } from '../summary-step/summary-step.component';
     PlanStepComponent, AddonStepComponent,
     SummaryStepComponent
   ],
-  templateUrl: './step-form.component.html',
-  styles: []
+  templateUrl: './step-form.component.html'
 })
-export class StepFormComponent {
+export class StepFormComponent implements OnInit {
   @Input() activeStep: number | undefined
   @Output() stepForwarded = new EventEmitter<void>()
   @Output() stepReversed = new EventEmitter<void>()
+
+  stepForm!: FormGroup<StepForm>
+
+  get stepFormCtrl(){
+    return this.stepForm.controls
+  }
+  get stepFormValues(){
+    return this.stepForm.getRawValue()
+  }
 
   get currentTitle() {
     return TITLES.find(t => t.step === this.activeStep)
@@ -45,6 +56,23 @@ export class StepFormComponent {
     return this.activeStep && this.activeStep > 1
   }
 
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.initializeForm()
+  }
+
+  private initializeForm() {
+    this.stepForm = this.fb.nonNullable.group({
+      name : ['', Validators.required],
+      email : ['', [Validators.required, Validators.email]],
+      phone : ['', Validators.required],
+      planId : [1, Validators.required],
+      annual: [false],
+      addons : this.fb.nonNullable.array([false, false, false]),
+    })
+  }
+
   nextStep() {
     this.stepForwarded.emit()
   }
@@ -53,20 +81,9 @@ export class StepFormComponent {
   }
 
   confirm() {
-    this.stepForwarded.emit()
+    if (this.stepForm.valid) {
+      this.stepForwarded.emit()
+    }
+
   }
 }
-
-
-interface Title {
-  step: number
-  header: string
-  subHeader: string
-}
-
-const TITLES: Title[] = [
-  { step: 1, header: 'Personal info', subHeader: 'Please provide your name, email address, and phone number.' },
-  { step: 2, header: 'Select your plan', subHeader: 'You have the option of monthly or yearly billing.' },
-  { step: 3, header: 'Pick add-ons', subHeader: 'Add-ons help enhance your gaming experience.' },
-  { step: 4, header: 'Finishing up', subHeader: 'Double-check everything looks OK before confirming.' }
-]

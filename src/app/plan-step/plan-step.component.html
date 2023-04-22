@@ -1,8 +1,9 @@
 <div class="grid gap-y-[1.2rem] lg:gap-y-0 lg:grid-cols-3 gap-x-[1.8rem] mb-3.2">
   <app-plan-radio
     *ngFor="let plan of plans |async"
-    [active]="plan.name === selectedPlan"
-    [annual]="annualPlan"
+    [active]="plan.id === planIdCtrl.value"
+    [annual]="annualCtrl.value"
+    [planId]="plan.id"
     [planName]="plan.name"
     [planImg]="plan.imgUrl"
     [planAmount]="plan.amount"
@@ -10,7 +11,7 @@
   </app-plan-radio>
 </div>
 <div class="bg-alabaster rounded-bs h-4.8 flex justify-center items-center gap-2.4">
-  <span [ngClass]="{'text-blue-marine': !annualPlan, 'text-gray-cool': annualPlan}" class="capitalize text-sb font-bold">monthly</span>
-  <app-plan-toggle [active]="annualPlan" (toggled)="changeBilling()"></app-plan-toggle>
-  <span [ngClass]="{'text-blue-marine': annualPlan, 'text-gray-cool': !annualPlan}" class="capitalize text-sb font-bold">yearly</span>
+  <span [ngClass]="{'text-blue-marine': !annualCtrl.value, 'text-gray-cool': annualCtrl.value}" class="capitalize text-sb font-bold">monthly</span>
+  <app-plan-toggle [active]="annualCtrl.value" (toggled)="changeBilling()"></app-plan-toggle>
+  <span [ngClass]="{'text-blue-marine': annualCtrl.value, 'text-gray-cool': !annualCtrl.value}" class="capitalize text-sb font-bold">yearly</span>
 </div>

@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
     <button
-      (click)="selected.emit(planName)"
+      (click)="selected.emit(planId)"
       [ngClass]="{'border-blue-purplish bg-alabaster': active,
         'border-gray-light hover:border-blue-purplish bg-white': !active,
         'lg:h-64': !annual, 'lg:h-[18.3rem]': annual
@@ -21,15 +21,15 @@ import { CommonModule } from '@angular/common';
         <span *ngIf="annual" class="text-blue-marine font-normal text-xl">2 months free</span>
       </div>
     </button>
-  `,
-  styles: []
+  `
 })
 export class PlanRadioComponent {
 
   @Input() active: boolean | undefined
   @Input() annual: boolean | undefined
+  @Input() planId: number | undefined
   @Input() planName: string | undefined
   @Input() planImg: string | undefined
   @Input() planAmount: number | undefined
-  @Output() selected = new EventEmitter<string>()
+  @Output() selected = new EventEmitter<number>()
 }

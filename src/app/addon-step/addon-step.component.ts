@@ -1,51 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 import { AddonCheckboxComponent } from './addon-checkbox.component';
+import { MonthAddons, YearAddons } from '../app.constant';
+import { FormArray, FormControl } from '@angular/forms';
+import { Addon } from '../app.model';
 
 @Component({
   selector: 'app-addon-step',
   standalone: true,
   imports: [CommonModule, AddonCheckboxComponent],
-  templateUrl: './addon-step.component.html',
-  styles: []
+  templateUrl: './addon-step.component.html'
 })
-export class AddonStepComponent {
-  addons = new BehaviorSubject(MonthAddons)
+export class AddonStepComponent implements OnInit {
+  @Input() addonsCtrl!: FormArray<FormControl<boolean>>
+  @Input() annualCtrl!: FormControl<boolean>
+  addons!: BehaviorSubject<Addon[]>
 
-  selectedAddons: string[] = []
-
-  addonSelected(addon: string) {
-    return this.selectedAddons.includes(addon)
+  ngOnInit(): void {
+    this.addons = new BehaviorSubject(this.annualCtrl.value ? YearAddons : MonthAddons)
   }
 
-  updatedAddons(addon: string) {
-    const addonSelected = this.addonSelected(addon)
-    if (addonSelected) {
-      this.selectedAddons = this.selectedAddons.filter(a => a !== addon)
-    } else {
-      this.selectedAddons.push(addon)
-    }
+  addonSelected(addon: number) {
+    return this.addonsCtrl.value[addon - 1]
   }
 
+  updatedAddons(addon: number) {
+    const addonList = [...this.addonsCtrl.value]
+    addonList[addon - 1] = !addonList[addon - 1]
 
+    this.addonsCtrl.setValue(addonList)
+  }
 }
 
-interface Addon {
-  header: string
-  amount: number
-  sub: string
-}
-
-const BASEADDONS: Addon[] = [
-  { header: 'Online service', amount: 1, sub: 'Access to multiplayer games' },
-  { header: 'Larger storage', amount: 2, sub: 'Extra 1TB of cloud save' },
-  { header: 'Customizable profile', amount: 2, sub: 'Custom theme on your profile' }
-]
-
-const MonthAddons = [...BASEADDONS]
-const YearAddons = BASEADDONS.map(addon => {
-    const yearAddon = { ...addon}
-    yearAddon.amount *= 10
-    return yearAddon
-  })

@@ -5,10 +5,6 @@ import { CommonModule } from '@angular/common';
   selector: 'app-subscription-confirmation',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './subscription-confirmation.component.html',
-  styles: [
-  ]
+  templateUrl: './subscription-confirmation.component.html'
 })
-export class SubscriptionConfirmationComponent {
-
-}
+export class SubscriptionConfirmationComponent {}
